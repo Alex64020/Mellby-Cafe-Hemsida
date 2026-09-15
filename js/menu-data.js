@@ -27,6 +27,14 @@ const MENU_DATA = [
     ],
   },
   {
+    category: "Sallader",
+    items: [
+      { name: "Grekisk horiatiki", desc: "Tomat, gurka, lök, paprika, oliver, fetaost", price: "100 kr" },
+      { name: "Caesarsallad", desc: "Med grillad kyckling", price: "130 kr" },
+      { name: "Arancini-tryffel", desc: "Friterade risottobollar med svamp, parmesan och tryffelmajonnäs", price: "130 kr" },
+    ],
+  },
+  {
     category: "Hamburgare",
     note: "Krispiga pommes ingår alltid i priset!",
     items: [
@@ -46,14 +54,6 @@ const MENU_DATA = [
     ],
   },
   {
-    category: "Sallader",
-    items: [
-      { name: "Grekisk horiatiki", desc: "Tomat, gurka, lök, fetaost", price: "100 kr" },
-      { name: "Caesarsallad", desc: "Med grillad kyckling", price: "130 kr" },
-      { name: "Arancini-tryffel", desc: "Friterade risottobollar med svamp, parmesan och tryffelmajonnäs", price: "130 kr" },
-    ],
-  },
-  {
     category: "Club Sandwich",
     items: [
       { name: "Club Sandwich Skinka", desc: "Rostat bröd, skinka, ost, tomat, gurka, sallad & majonnäs, pommes", price: "100 kr" },
@@ -65,7 +65,7 @@ const MENU_DATA = [
     items: [
       { name: "Fish n' chips", desc: "Serveras varje dag", price: "130 kr" },
       { name: "Schnitzel", desc: "Fläsk eller kyckling — serveras varje dag", price: "130 kr" },
-      { name: "Grekisk husmanskost", desc: "Serveras torsdag–lördag", price: "139 kr" },
+      { name: "Grekisk husmanskost", desc: "Serveras torsdag — skiftar mellan 5 grekiska rätter, t.ex. moussaka, pastitsio och bifteki", price: "139 kr" },
     ],
   },
   {
