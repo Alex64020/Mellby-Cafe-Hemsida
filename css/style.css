@@ -666,6 +666,10 @@ a.highlight-burgare { border-top-color: var(--color-burger); }
   background: #000;
 }
 
+.julbord-dishes .split img {
+  max-height: 560px;
+}
+
 /* Gallery */
 .gallery-grid {
   display: grid;
