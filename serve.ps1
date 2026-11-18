@@ -19,6 +19,7 @@ $mime = @{
   ".svg"  = "image/svg+xml"
   ".ico"  = "image/x-icon"
   ".mov"  = "video/quicktime"
+  ".mp4"  = "video/mp4"
 }
 
 while ($listener.IsListening) {

@@ -3,9 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mellby Café — Kaffe, fika och husmanskost i Stora Mellby</title>
-<meta name="description" content="Mellby Café i Stora Mellby — mysigt café med fika, hembakat, grekisk husmanskost och hamburgare. Öppet torsdag till söndag.">
+<title>Grekisk restaurang & café i Stora Mellby — Mellby Café | Souvlaki, gyros, hamburgare</title>
+<meta name="description" content="Grekisk restaurang och café i Stora Mellby (Sollebrunn). Souvlaki, gyros, moussaka, hamburgare och hembakat fika. Öppet torsdag–söndag. Boka julbord 2026.">
+<link rel="canonical" href="https://mellbycafe.se/">
 <link rel="icon" href="images/logo.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Restaurant", "CafeOrCoffeeShop"],
+  "name": "Mellby Café",
+  "description": "Grekisk restaurang och café i Stora Mellby med souvlaki, gyros, moussaka, hamburgare och hembakat fika.",
+  "url": "https://mellbycafe.se/",
+  "telephone": "+46723507763",
+  "image": "https://mellbycafe.se/images/souvlaki-tallrik.jpg",
+  "servesCuisine": ["Greek", "Swedish"],
+  "hasMenu": "https://mellbycafe.se/meny.html",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Mellbyvägen 138",
+    "addressLocality": "Stora Mellby",
+    "addressCountry": "SE"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Thursday", "Friday", "Saturday"], "opens": "10:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "16:00" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/p/Mellby-Cafe-61561278545610/",
+    "https://www.instagram.com/mellby.cafe/"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
@@ -36,7 +64,8 @@
     <h1 id="hero-title"></h1>
     <p id="hero-text"></p>
     <div class="hero-actions">
-      <a href="meny.html" class="btn btn-primary">Se menyn</a>
+      <a href="catering.html#julbord" class="btn btn-primary">🎄 Julbord 2026</a>
+      <a href="meny.html" class="btn btn-outline">Se menyn</a>
       <a href="kontakt.html" class="btn btn-outline">Hitta hit</a>
     </div>
     <div class="social-follow">
@@ -53,23 +82,83 @@
   </div>
 </section>
 
+<section class="julbord-banner">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-eyebrow">🎄 Julbord 2026</div>
+        <h2>Boka julbord hos oss</h2>
+        <p>Julen närmar sig, och hos oss dukar vi upp ett riktigt julbord i vår mysiga, julpyntade lokal. Perfekt för firmafesten, familjen eller vännerna — platserna brukar ta slut fort, så boka i god tid.</p>
+        <a href="catering.html#julbord" class="btn btn-primary">Se julbordet &amp; boka</a>
+      </div>
+      <img src="images/julbord-entre.jpg" alt="Julpyntad entré med röd matta på Mellby Café">
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Vad är du sugen på?</div>
+      <h2>Café, grekisk restaurang eller hamburgare</h2>
+    </div>
     <div class="highlights">
-      <div class="highlight">
+      <a class="highlight" href="meny.html#cafe">
         <div class="icon">☕</div>
-        <h3>Fika &amp; hembakat</h3>
-        <p>Nybryggt kaffe, cheesecake, äppelstrudel och tiramisu varje dag.</p>
+        <h3>Café &amp; fika</h3>
+        <p>Nybryggt kaffe, smörgåsar, cheesecake, äppelstrudel och tiramisu.</p>
+        <span class="highlight-more">Se café-menyn →</span>
+      </a>
+      <a class="highlight highlight-greek" href="meny.html#grekisk">
+        <div class="icon">🥙</div>
+        <h3>Grekisk restaurang</h3>
+        <p>Souvlaki, gyros, saganaki, moussaka och grekiska sallader.</p>
+        <span class="highlight-more">Se grekiska menyn →</span>
+      </a>
+      <a class="highlight highlight-burgare" href="meny.html#burgare">
+        <div class="icon">🍔</div>
+        <h3>Hamburgare</h3>
+        <p>Nymalet kött, hemgjord dippsås och pommes som alltid ingår.</p>
+        <span class="highlight-more">Se hamburgarna →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt feature feature-greek">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-eyebrow">Grekisk restaurang</div>
+        <h2>Äkta grekisk mat i Stora Mellby</h2>
+        <p>Hos oss äter du riktig grekisk mat: saftiga souvlakispett, gyrostallrik, saganaki med honung och valnötter och en frisk horiatiki. Varje torsdag serverar vi grekisk husmanskost — moussaka, pastitsio och bifteki.</p>
+        <ul class="chips">
+          <li>Souvlaki</li>
+          <li>Gyros</li>
+          <li>Moussaka</li>
+          <li>Saganaki</li>
+        </ul>
+        <a href="meny.html#grekisk" class="btn btn-greek">Se grekiska menyn</a>
       </div>
-      <div class="highlight">
-        <div class="icon">🍽️</div>
-        <h3>Grekisk husmanskost och burgare</h3>
-        <p>Souvlaki, sallader och husets hamburgare lagade med omsorg.</p>
-      </div>
-      <div class="highlight">
-        <div class="icon">🤝</div>
-        <h3>Bygdens träffpunkt</h3>
-        <p>Föreningsmöten, mopedträffar och fika för alla åldrar.</p>
+      <img src="images/souvlaki-spett-narbild.jpg" alt="Grekiska souvlakispett med pommes, pitabröd och tzatziki">
+    </div>
+  </div>
+</section>
+
+<section class="feature feature-burger">
+  <div class="container">
+    <div class="split">
+      <img src="images/dubbelburgare-bacon.jpg" alt="Mellbys dubbel baconcheeseburgare">
+      <div>
+        <div class="section-eyebrow">Hamburgare</div>
+        <h2>Husets hamburgare — gjorda på nymalt kött</h2>
+        <p>Vi gör våra hamburgare på vårt eget nymalda kött och blandar dippsåsen själva. Välj mellan klassiska Mellby Hamburgare, Stora Mellby med krispig bacon, vegetariska halloumiburgaren eller Mellbys Dubbel.</p>
+        <ul class="chips">
+          <li>Pommes ingår alltid</li>
+          <li>Hemgjord dippsås</li>
+          <li>Vegetariskt alternativ</li>
+        </ul>
+        <a href="meny.html#burgare" class="btn btn-burger">Se alla hamburgare</a>
       </div>
     </div>
   </div>
@@ -86,42 +175,6 @@
         <a href="om-oss.html" class="btn btn-dark">Läs mer om oss</a>
       </div>
       <img src="images/bar-disk.jpg" alt="Disk med meny och frukt på Mellby Café">
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow">Smakprov</div>
-      <h2>Några av våra favoriter</h2>
-      <p>Ett litet urval från köket och fikadisken.</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card">
-        <img src="images/burgare-studio.jpg" alt="Stora Mellby Hamburgare med pommes">
-        <div class="card-body">
-          <h3>🍔 Mellby Hamburgare</h3>
-          <p>Nymalet premiumkött, karamelliserad lök och hemmagjord dippsås. Pommes ingår alltid.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/souvlaki-tallrik.jpg" alt="Grekiska grillspett med pitabröd och tzatziki">
-        <div class="card-body">
-          <h3>🍢 Grekiska Grillspett</h3>
-          <p>Fläsk eller kyckling med pommes, pitabröd och hemmagjord tzatziki.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/tarta-disk.jpg" alt="Hemlagat fika och efterrätter på Mellby Café">
-        <div class="card-body">
-          <h3>🍰 Hemlagat fika</h3>
-          <p>Pajer, tiramisu och vår äppelstrudel med valnötter och kanel.</p>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-lg">
-      <a href="meny.html" class="btn btn-dark">Hela menyn</a>
     </div>
   </div>
 </section>

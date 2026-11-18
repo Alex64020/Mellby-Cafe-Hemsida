@@ -16,6 +16,6 @@
 const SITE_CONFIG = {
   heroImage: "tarta-uteplats.jpg",
   heroEyebrow: "Stora Mellby sedan 2024",
-  heroTitle: "Ett mysigt café mitt i byn",
-  heroText: "Fika, hembakat, grekisk husmanskost och goda hamburgare — Mellby Café är mer än bara ett café. Vi är en träffpunkt för hela bygden.",
+  heroTitle: "Grekisk restaurang & café i Stora Mellby",
+  heroText: "Souvlaki, gyros och moussaka lagat från grunden, riktigt goda hamburgare och hembakat fika — välkommen till Mellby Café, en träffpunkt för hela bygden.",
 };

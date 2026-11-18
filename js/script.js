@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initLightbox();
   renderMenu();
   applySiteConfig();
+  document.querySelectorAll("video").forEach((v) => {
+    v.muted = true;
+  });
 });
 
 function initNav() {
@@ -77,10 +80,9 @@ function renderMenu() {
   const root = document.getElementById("menu-root");
   if (!root || typeof MENU_DATA === "undefined") return;
 
-  root.innerHTML = MENU_DATA.map(
-    (cat) => `
+  const renderCategory = (cat) => `
       <div class="menu-category">
-        <h2>${cat.category}</h2>
+        <h3>${cat.category}</h3>
         ${cat.note ? `<div class="menu-category-note">${cat.note}</div>` : ""}
         ${cat.items
           .map(
@@ -96,6 +98,39 @@ function renderMenu() {
           )
           .join("")}
       </div>
-    `
-  ).join("");
+    `;
+
+  const sections = typeof MENU_SECTIONS === "undefined" ? [] : MENU_SECTIONS;
+
+  const jump = `
+    <nav class="menu-jump" aria-label="Hoppa till avdelning">
+      ${sections
+        .map(
+          (s) =>
+            `<a href="#${s.id}" class="menu-jump-btn menu-jump-${s.id}"><span>${s.icon}</span> ${s.title}</a>`
+        )
+        .join("")}
+    </nav>`;
+
+  const body = sections
+    .map((s) => {
+      const cats = MENU_DATA.filter((c) => c.section === s.id);
+      if (!cats.length) return "";
+      return `
+        <div class="menu-section menu-section-${s.id}" id="${s.id}">
+          <div class="menu-section-head">
+            <div class="menu-section-icon">${s.icon}</div>
+            <div>
+              <h2>${s.title}</h2>
+              <p>${s.tagline}</p>
+            </div>
+          </div>
+          ${cats.map(renderCategory).join("")}
+        </div>`;
+    })
+    .join("");
+
+  const orphans = MENU_DATA.filter((c) => !sections.some((s) => s.id === c.section));
+
+  root.innerHTML = jump + body + orphans.map(renderCategory).join("");
 }

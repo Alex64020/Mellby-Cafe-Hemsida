@@ -1,13 +1,39 @@
 // ==========================================================================
 // MELLBY CAFÉ — MENY
-// Redigera menyn HÄR. Varje kategori är en rubrik, varje rad är en rätt.
+// Redigera menyn HÄR. Menyn är uppdelad i tre avdelningar (MENU_SECTIONS):
+// Café & Fika, Grekisk restaurang och Hamburgare.
+// Varje kategori (MENU_DATA) hör till en avdelning via "section" och har en
+// rubrik. Varje rad i "items" är en rätt.
 // Lägg till, ta bort eller ändra rader fritt — sidan uppdateras automatiskt.
 // Lämna "price": "" om du inte vill visa något pris (t.ex. innan ni bestämt det).
 // "note" är en valfri kort textrad som visas direkt under kategorins rubrik.
 // ==========================================================================
 
-const MENU_DATA = [
+const MENU_SECTIONS = [
   {
+    id: "cafe",
+    icon: "☕",
+    title: "Café & Fika",
+    tagline: "Kaffe, smörgåsar, hembakat och dagens lunch — för dig som vill fika.",
+  },
+  {
+    id: "grekisk",
+    icon: "🥙",
+    title: "Grekisk restaurang",
+    tagline: "Äkta grekisk mat: souvlaki, gyros, moussaka och saganaki — lagat från grunden.",
+  },
+  {
+    id: "burgare",
+    icon: "🍔",
+    title: "Hamburgare",
+    tagline: "Vårt egna nymalda kött, hemgjord dippsås och krispiga pommes — alltid ingår.",
+  },
+];
+
+const MENU_DATA = [
+  // ---------------------------- CAFÉ & FIKA ----------------------------
+  {
+    section: "cafe",
     category: "Kaffe & Dryck",
     items: [
       { name: "Espresso", desc: "Enkel / Dubbel", price: "30 / 40 kr" },
@@ -21,54 +47,20 @@ const MENU_DATA = [
     ],
   },
   {
-    category: "Förrätt",
+    section: "cafe",
+    category: "Hemlagat fika & efterrätter",
+    note: "Efter maten bjuder vi på kaffet! Missa inte vår monter fylld med hembakat.",
     items: [
-      { name: "🧀 Saganaki", desc: "Ljuvlig stekt/friterad grekisk ost som toppas med flytande honung och krispiga valnötter. En riktig dröm!", price: "120 kr" },
+      { name: "🍰 Hembakade pajer", desc: "Dagens sort — se utbudet i disken", price: "45 kr" },
+      { name: "🍰 Tiramisu", desc: "", price: "50 kr" },
+      { name: "🍎 Äppelstrudel", desc: "Med valnötter och kanel — husets specialitet!", price: "50 kr" },
+      { name: "🍰 Cheesecake", desc: "I olika smaker — se utbudet i disken", price: "60 kr" },
+      { name: "🍰 Tårtbitar", desc: "I olika sorter — se utbudet i disken", price: "65 kr" },
+      { name: "🥕 Morotskaka", desc: "", price: "45 kr" },
     ],
   },
   {
-    category: "Sallader",
-    items: [
-      { name: "Grekisk horiatiki", desc: "Tomat, gurka, lök, paprika, oliver, fetaost", price: "100 kr" },
-      { name: "Caesarsallad", desc: "Med grillad kyckling", price: "130 kr" },
-      { name: "Arancini-tryffel", desc: "Friterade risottobollar med svamp, parmesan och tryffelmajonnäs", price: "130 kr" },
-    ],
-  },
-  {
-    category: "Hamburgare",
-    note: "Krispiga pommes ingår alltid i priset!",
-    items: [
-      { name: "🍔 Mellby Hamburgare (150g)", desc: "Gjord på vårt egna nymalda premiumkött med långsamt karamelliserad lök, smält ost och vår hemmagjorda dippsås.", price: "139 kr" },
-      { name: "🍔 Stora Mellby Hamburgare", desc: "Vårt nymalda kött med krispig bacon, vår egna picklade gurka, smält ost och hemmagjord dippsås.", price: "159 kr" },
-      { name: "🍔 Mellby Halloumiburgare (Vegetarisk)", desc: "Perfekt grillad halloumiost med karamelliserad lök, vår egna picklade gurka och hemmagjord dippsås.", price: "139 kr" },
-      { name: "🍔 Mellbys Dubbel", desc: "Dubbel smashburgare, bacon, dubbel ost, pommes och sås.", price: "200 kr" },
-      { name: "🍔 Barnburgare", desc: "Upp till 12 år — mindre smashburgare, pommes och sås.", price: "74 kr" },
-    ],
-  },
-  {
-    category: "Souvlaki & Grill",
-    items: [
-      { name: "🍢 Grekiska Grillspett (Souvlaki)", desc: "Perfekt grillade spett (fläsk eller kyckling) som serveras med pommes, varmt pitabröd och vår magiska hemmagjorda tzatziki.", price: "159 kr" },
-      { name: "🥙 Vår Gyrostallrik", desc: "Skivat fläsk eller kyckling med pommes, pitabröd, tzatziki och färsk sallad.", price: "159 kr" },
-      { name: "🧆 Vår Stora Grill Mix", desc: "Den ultimata grekiska festmåltiden! Ett jättefat fyllt till bredden med olika sorters grillat kött, souvlaki, pitabröd, tillbehör och röror. Helt perfekt att dela runt bordet på uteserveringen!", price: "330 kr" },
-    ],
-  },
-  {
-    category: "Club Sandwich",
-    items: [
-      { name: "Club Sandwich Skinka", desc: "Rostat bröd, skinka, ost, tomat, gurka, sallad & majonnäs, pommes", price: "100 kr" },
-      { name: "Club Sandwich Kyckling", desc: "Rostat bröd, kycklingfilé, bacon, pommes, parmesan & caesarsås", price: "130 kr" },
-    ],
-  },
-  {
-    category: "Varmrätter",
-    items: [
-      { name: "Fish n' chips", desc: "Serveras varje dag", price: "130 kr" },
-      { name: "Schnitzel", desc: "Fläsk eller kyckling — serveras varje dag", price: "130 kr" },
-      { name: "Grekisk husmanskost", desc: "Serveras torsdag — skiftar mellan 5 grekiska rätter, t.ex. moussaka, pastitsio och bifteki", price: "139 kr" },
-    ],
-  },
-  {
+    section: "cafe",
     category: "Smörgåsar & Tårtor",
     items: [
       { name: "Smörgåstårta", desc: "", price: "100 kr" },
@@ -83,15 +75,67 @@ const MENU_DATA = [
     ],
   },
   {
-    category: "Hemlagat fika & efterrätter",
-    note: "Efter maten bjuder vi på kaffet! Missa inte vår monter fylld med hembakat.",
+    section: "cafe",
+    category: "Club Sandwich",
     items: [
-      { name: "🍰 Hembakade pajer", desc: "Dagens sort — se utbudet i disken", price: "45 kr" },
-      { name: "🍰 Tiramisu", desc: "", price: "50 kr" },
-      { name: "🍎 Äppelstrudel", desc: "Med valnötter och kanel — husets specialitet!", price: "50 kr" },
-      { name: "🍰 Cheesecake", desc: "I olika smaker — se utbudet i disken", price: "60 kr" },
-      { name: "🍰 Tårtbitar", desc: "I olika sorter — se utbudet i disken", price: "65 kr" },
-      { name: "🥕 Morotskaka", desc: "", price: "45 kr" },
+      { name: "Club Sandwich Skinka", desc: "Rostat bröd, skinka, ost, tomat, gurka, sallad & majonnäs, pommes", price: "100 kr" },
+      { name: "Club Sandwich Kyckling", desc: "Rostat bröd, kycklingfilé, bacon, pommes, parmesan & caesarsås", price: "130 kr" },
+    ],
+  },
+  {
+    section: "cafe",
+    category: "Dagens varmrätter",
+    items: [
+      { name: "Fish n' chips", desc: "Serveras varje dag", price: "130 kr" },
+      { name: "Schnitzel", desc: "Fläsk eller kyckling — serveras varje dag", price: "130 kr" },
+    ],
+  },
+
+  // ------------------------- GREKISK RESTAURANG -------------------------
+  {
+    section: "grekisk",
+    category: "Förrätt",
+    items: [
+      { name: "🧀 Saganaki", desc: "Ljuvlig stekt/friterad grekisk ost som toppas med flytande honung och krispiga valnötter. En riktig dröm!", price: "120 kr" },
+    ],
+  },
+  {
+    section: "grekisk",
+    category: "Sallader",
+    items: [
+      { name: "Grekisk horiatiki", desc: "Tomat, gurka, lök, paprika, oliver, fetaost", price: "100 kr" },
+      { name: "Caesarsallad", desc: "Med grillad kyckling", price: "130 kr" },
+      { name: "Arancini-tryffel", desc: "Friterade risottobollar med svamp, parmesan och tryffelmajonnäs", price: "130 kr" },
+    ],
+  },
+  {
+    section: "grekisk",
+    category: "Souvlaki & Grill",
+    items: [
+      { name: "🍢 Grekiska Grillspett (Souvlaki)", desc: "Perfekt grillade spett (fläsk eller kyckling) som serveras med pommes, varmt pitabröd och vår magiska hemmagjorda tzatziki.", price: "159 kr" },
+      { name: "🥙 Vår Gyrostallrik", desc: "Skivat fläsk eller kyckling med pommes, pitabröd, tzatziki och färsk sallad.", price: "159 kr" },
+      { name: "🧆 Vår Stora Grill Mix", desc: "Den ultimata grekiska festmåltiden! Ett jättefat fyllt till bredden med olika sorters grillat kött, souvlaki, pitabröd, tillbehör och röror. Helt perfekt att dela runt bordet på uteserveringen!", price: "330 kr" },
+    ],
+  },
+  {
+    section: "grekisk",
+    category: "Grekisk husmanskost",
+    items: [
+      { name: "Grekisk husmanskost", desc: "Serveras torsdag — skiftar mellan 5 grekiska rätter, t.ex. moussaka, pastitsio och bifteki", price: "139 kr" },
+    ],
+  },
+
+  // ----------------------------- HAMBURGARE -----------------------------
+  {
+    section: "burgare",
+    category: "Våra hamburgare",
+    note: "Krispiga pommes ingår alltid i priset!",
+    items: [
+      { name: "🍔 Mellby Hamburgare (150g)", desc: "Gjord på vårt egna nymalda premiumkött med långsamt karamelliserad lök, smält ost och vår hemmagjorda dippsås.", price: "139 kr" },
+      { name: "🍔 Stora Mellby Hamburgare", desc: "Vårt nymalda kött med krispig bacon, vår egna picklade gurka, smält ost och hemmagjord dippsås.", price: "159 kr" },
+      { name: "🍔 Mellby Halloumiburgare (Vegetarisk)", desc: "Perfekt grillad halloumiost med karamelliserad lök, vår egna picklade gurka och hemmagjord dippsås.", price: "139 kr" },
+      { name: "🍔 Mellbys Dubbel", desc: "Dubbel smashburgare, bacon, dubbel ost, pommes och sås.", price: "200 kr" },
+      { name: "🍔 Barnburgare", desc: "Upp till 12 år — mindre smashburgare, pommes och sås.", price: "74 kr" },
     ],
   },
 ];
