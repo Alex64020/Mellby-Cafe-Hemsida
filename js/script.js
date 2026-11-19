@@ -26,24 +26,41 @@ function initNav() {
 
 function initLightbox() {
   const links = document.querySelectorAll(".gallery-grid a, a.zoom");
-  if (!links.length) return;
+  const videos = document.querySelectorAll("video.zoom-video");
+  if (!links.length && !videos.length) return;
 
   const lightbox = document.createElement("div");
   lightbox.className = "lightbox";
   lightbox.innerHTML = `
     <button class="lightbox-close" aria-label="Stäng">&times;</button>
     <img src="" alt="">
+    <video muted loop playsinline hidden></video>
   `;
   document.body.appendChild(lightbox);
 
   const img = lightbox.querySelector("img");
+  const video = lightbox.querySelector("video");
   const closeBtn = lightbox.querySelector(".lightbox-close");
+  video.muted = true;
 
   links.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
+      video.hidden = true;
+      img.hidden = false;
       img.src = link.getAttribute("href");
       img.alt = link.querySelector("img")?.alt || "";
+      lightbox.classList.add("open");
+    });
+  });
+
+  videos.forEach((v) => {
+    v.addEventListener("click", () => {
+      img.hidden = true;
+      video.hidden = false;
+      video.src = v.currentSrc || v.src;
+      video.muted = true;
+      video.play();
       lightbox.classList.add("open");
     });
   });
@@ -51,6 +68,9 @@ function initLightbox() {
   function close() {
     lightbox.classList.remove("open");
     img.src = "";
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
   }
 
   closeBtn.addEventListener("click", close);
