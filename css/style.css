@@ -670,6 +670,36 @@ a.highlight-burgare { border-top-color: var(--color-burger); }
   max-height: 560px;
 }
 
+a.zoom {
+  display: block;
+  cursor: zoom-in;
+}
+
+.julbord-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.julbord-gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.julbord-gallery a:hover img {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+@media (max-width: 720px) {
+  .julbord-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* Gallery */
 .gallery-grid {
   display: grid;

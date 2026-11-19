@@ -25,7 +25,7 @@ function initNav() {
 }
 
 function initLightbox() {
-  const links = document.querySelectorAll(".gallery-grid a");
+  const links = document.querySelectorAll(".gallery-grid a, a.zoom");
   if (!links.length) return;
 
   const lightbox = document.createElement("div");
